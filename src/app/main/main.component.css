@@ -1,0 +1,37 @@
+.incomplete {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.content-grid {
+  display: flex;
+  padding: 20px;
+  margin: 10px 0;
+  font-size: 10px;
+}
+
+.content-grid .label {
+  min-width: 135px;
+  /*width: 20%;*/
+}
+
+.Instructions {
+  margin: 5px 0;
+}
+
+.instrother {
+  margin: 0 0 0 160px;
+}
+
+.instrother textarea {
+   width: 600px;
+}
+
+.inside {
+  margin: 0 20px 0 10px;
+}
+
+.inside2 {
+  margin: 20px;
+}

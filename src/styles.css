@@ -1,0 +1,146 @@
+* {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #000000;
+  margin: 0;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+
+body {
+  /*margin: 30px;*/
+}
+
+.title {
+  font-size: 28px;
+  color: #0B61A4;
+  margin: 13px;
+}
+
+a {
+  color: #0B61A4;
+  text-decoration: underline;
+}
+
+.label {
+  font-weight: bold;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.label.large {
+  font-size: 24px;
+}
+
+.caption {
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+.container {
+  margin: 0 50px;
+}
+
+.left {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.flex {
+  display: flex;
+}
+
+.content-holder {
+  /*border: 1px red solid;*/
+  width: 86%;
+  padding: 14px;
+}
+
+.content-holder div {
+  /*margin: 10px 0 ;*/
+}
+
+
+.k-icon.question {
+  margin: 5px 135px 0 15px;
+  color: #0B61A4;
+  font-size: 24px;
+}
+
+.menu .k-menu .k-item {
+  border: 1px #ddd solid;
+  min-width: 75px;
+  background-color: #66A3D2;
+  border-radius: 5px 5px 0 0;
+}
+
+.menu .k-menu .k-item > .k-link {
+  color: #fff;
+  margin: auto;
+}
+
+.menu .k-menu .k-item.k-first {
+  background-color: #0B61A4;
+}
+
+.menuholder .k-menu:not(.k-context-menu) {
+  background-color: transparent;
+}
+
+
+.menuholder {
+  position: absolute;
+  top: 65px;
+}
+
+
+
+.menuleft .k-i-globe, .menuleft .k-menu .k-item > .k-link {
+  color: #66A3D2;
+}
+
+.menuleft .k-menu .k-item > .k-link {
+  color: #66A3D2;
+  border: 1px solid #66A3D2;
+}
+
+
+.menuleft  .k-menu-vertical {
+  padding:  0;
+}
+
+.k-grid .k-alt {
+  color: #212529;
+  background-color: transparent;
+}
+
+.k-grid a.link {
+  color: #0B61A4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.k-grid td, .k-grid th {
+  padding: .5rem;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}

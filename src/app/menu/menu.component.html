@@ -1,0 +1,28 @@
+<div class="menu">
+  <div class="left">
+    <img src="/assets/hospital-logo.png" width="100" alt="Hospital Software"/>
+  </div>
+  <div class="topnav">
+    <div >
+      <h1 class="title">{{title}}</h1>
+      <div class="menuholder">
+        <kendo-menu [items]="items"></kendo-menu>
+      </div>
+
+    </div>
+
+    <div  >
+      <div class="flex">
+        <p><img src="/assets/credible-logo.jpg" alt="Credible Software" width="100"/></p>
+        <p><span class="k-icon k-i-question question"></span></p>
+        <p class="logout">
+          <button kendoButton >Logout</button>
+        </p>
+      </div>
+      <div class="row2">Logged in as: <a href="https://www.linkedin.com/in/levsavranskiy" target="_blank">{{user.name}}</a> {{user.loggedAt}}</div>
+    </div>
+  </div>
+</div>
+
+
+

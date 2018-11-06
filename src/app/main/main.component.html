@@ -1,0 +1,347 @@
+<div class="profile">
+  CLIENT MEDICAL PROFILE: {{patient.name}} ({{patient.id}}) DOB: {{patient.dob}} ({{patient.age}}/{{patient.sex}})
+</div>
+<div class="flex" style="line-height: 38px;">
+  <div class="label large">Discharge Summary</div>
+  <div>
+    <button kendoButton [primary]="true">Unload All Patient Education</button>
+  </div>
+</div>
+<div class="incomplete">
+  <div class="label">Incomplete Items</div>
+  <kendo-grid [data]="grid1.dataSource" style="width: 500px;">
+    <kendo-grid-column field="id" title="" width="30">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.id}}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="Section" title="Section" width="150">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.Section}}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="Item" title="Item" width="150">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <a [href]="dataItem.link" class="link" title="View details..." target="_blank">{{dataItem.Item}}</a>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="Status" title="Status" width="150">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.Status}}
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+</div>
+
+
+<div>
+  <div class="content-grid">
+    <div class="label">Diagnosis</div>
+    <div>
+      <kendo-grid [data]="grid2.dataSource" style="">
+        <kendo-grid-column field="Problem" title="Problem List" [width]="150">
+          <ng-template kendoGridCellTemplate let-dataItem>
+                <span class="{{dataItem.status  ? 'enabled' : 'disabled'}}">
+                     <label class="k-form-field">
+                      <input type="checkbox" id="cbd{{dataItem.id}}" class="k-checkbox" [checked]=dataItem.status>
+                      <label class="k-checkbox-label" for="cbd{{dataItem.id}}">{{dataItem.Problem}}</label>
+                    </label>
+                </span>
+
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Date" title="Onset Date" [width]="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+                   <span class="{{dataItem.status  ? 'enabled' : 'disabled'}}">
+                     {{dataItem.Date}}
+                     </span>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Notes" title="Notes" [width]="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+                   <span class="{{dataItem.status  ? 'enabled' : 'disabled'}}">
+                {{dataItem.Notes}}
+                     </span>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Doctor" title="Diagnosed By" [width]="300">
+          <ng-template kendoGridCellTemplate let-dataItem>
+                   <span class="{{dataItem.status  ? 'enabled' : 'disabled'}}">
+                    {{dataItem.Doctor}}
+                     </span>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Education" title="Education" [width]="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <ng-template [ngIf]="dataItem.Education">
+              <div>
+                <i class="fa fa-graduation-cap green" aria-hidden="true"></i>&nbsp;&nbsp;<a
+                href="{{dataItem.Education}}"
+                target="_blank" class="link">View</a>
+              </div>
+            </ng-template>
+            <ng-template [ngIf]="!dataItem.Education">
+              <div><i class="fa fa-graduation-cap red" aria-hidden="true"></i></div>
+            </ng-template>
+
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="label">Visits</div>
+    <div>
+      <kendo-grid [data]="grid3.dataSource" style="">
+        <kendo-grid-column field="Visit" title="Visit" width="150">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <label class="k-form-field">
+              <input type="checkbox" id="cbv{{dataItem.id}}" class="k-checkbox" [checked]=dataItem.status>
+              <label class="k-checkbox-label" for="cbv{{dataItem.id}}">{{dataItem.Visit}}</label>
+            </label>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Date" title="Date" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Date}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Time" title="Time" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Time}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Employee" title="Employee" width="400">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Employee}}
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="label">Medications</div>
+    <div>
+
+      <kendo-grid [data]="grid4.dataSource" style="">
+        <kendo-grid-column field="Medication" title="Medication" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" id="cbm{{dataItem.id}}" class="k-checkbox" [checked]=dataItem.status>
+            <label class="k-checkbox-label" for="cbm{{dataItem.id}}">{{dataItem.Medication}}</label>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Schedule" title="Schedule" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Schedule}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Refills" title="Refills" width="60">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Refills}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Pharmacy" title="Pharmacy" width="85">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Pharmacy}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Status" title="Status" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Status}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Action" width="190">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <kendo-combobox [data]="actionItems" [value]="actionItems[dataItem.id-1]">
+            </kendo-combobox>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Education" title="Patient Education" width="230">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <ng-template [ngIf]="dataItem.Education">
+              <div><i class="fa fa-graduation-cap green" aria-hidden="true"></i>
+                &nbsp;<a href="{{dataItem.Education}}" target="_blank" class="link">View</a>
+
+                &nbsp;&nbsp;
+                <i class="fa fa-video-camera green" aria-hidden="true"></i>
+                &nbsp;<a href="{{dataItem.Education}}" target="_blank" class="link">Play Video</a>
+                &nbsp;
+                &nbsp;<i style="font-size: 20px;" class="fa fa-arrow-circle-left green"
+                         [hidden]="dataItem.status>0"></i>
+              </div>
+            </ng-template>
+            <ng-template [ngIf]="!dataItem.Education">
+              <div><i class="fa fa-graduation-cap red" aria-hidden="true"></i>&nbsp;</div>
+            </ng-template>
+
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="label">Orders</div>
+    <div>
+      <kendo-grid [data]="grid5.dataSource" style="">
+        <kendo-grid-column field="Order" title="Order" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" id="cbo{{dataItem.id}}" class="k-checkbox" [checked]=dataItem.status>
+            <label class="k-checkbox-label" for="cbo{{dataItem.id}}">{{dataItem.Order}}</label>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Category" title="Category" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Category}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Time" title="Order Time" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Time}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Doctor" title="Physician" width="120">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Doctor}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Status" title="Status" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Status}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Action" width="190">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <kendo-combobox [data]="actionItems" [value]="actionItems[dataItem.id-1]">
+            </kendo-combobox>
+            &nbsp; <i style="font-size: 20px;" class="fa fa-arrow-circle-left green" [hidden]="dataItem.status>0"></i>
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+
+  <div class="content-grid" style="">
+    <div class="label">Lab Results</div>
+    <div>
+      <kendo-grid [data]="grid6.dataSource" style="">
+        <kendo-grid-column field="Order" title="Order" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" id="cbl{{dataItem.Order}}" class="k-checkbox" [checked]=dataItem.status>
+            <label class="k-checkbox-label" for="cbl{{dataItem.Order}}">{{dataItem.Order}}</label>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="OrderDate" title="Order Date" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.OrderDate}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="ReceivedDate" title="Received Date" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.ReceivedDate}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Source" title="Source" width="120">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Source}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Status" title="Status" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Status}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Action" width="190">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <kendo-combobox [data]="actionItems" [value]="actionItems[dataItem.id-1]">
+            </kendo-combobox>&nbsp;
+            <i style="font-size: 20px;" class="fa fa-arrow-circle-left green" [hidden]="dataItem.status>0"></i>
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+
+  <div class="content-grid" style="">
+    <div class="label">Immunizations</div>
+    <div>
+      <kendo-grid [data]="grid7.dataSource" style="">
+        <kendo-grid-column field="Visit" title="Visit" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" id="cbl{{dataItem.Visit}}" class="k-checkbox" [checked]=dataItem.status>
+            <label class="k-checkbox-label" for="cbl{{dataItem.Visit}}">{{dataItem.Visit}}</label>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Date" title="Date" width="100">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Date}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="Time" title="Time" width="500">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.Time}}
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="label">Instructions</div>
+    <div>
+      <div *ngFor="let item of instructions">
+        <div class="Instructions">
+          <input type="checkbox" id="cbi-{{item}}" class="k-checkbox" [checked]=true>
+          <label class="k-checkbox-label" for="cbi-{{item}}">{{item}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="label">Other Instructions</div>
+  </div>
+
+  <div class="instrother">
+      <textarea class="k-textarea">
+     More Instructions
+      </textarea>
+  </div>
+
+  <div class="content-grid datepicker">
+    <div class="label">Next visit</div>
+    <div class="inside">
+      <kendo-combobox [data]="actionItems" [value]="actionItems[0]">
+      </kendo-combobox>
+    </div>
+    <div class="inside">
+      <kendo-datepicker></kendo-datepicker>
+    </div>
+    <div class="inside"><a>Next available</a></div>
+  </div>
+
+  <div>
+    <div class="inside2">
+      <label class="k-form-field">
+        <input type="checkbox" id="item1" class="k-checkbox" [checked]=true>
+        <label class="k-checkbox-label" for="item1">Print medication schedule</label>
+      </label>
+    </div>
+    <div class="inside2">
+      <label class="k-form-field">
+        <input type="checkbox" id="item2" class="k-checkbox" [checked]=true>
+        <label class="k-checkbox-label" for="item2">Send to client portal</label>
+      </label>
+    </div>
+  </div>
+
+
+  <div class="content-grid">
+    <button kendoButton class="inside">Cancel</button>
+    <button kendoButton class="inside">Save Draft</button>
+    <button kendoButton class="inside">Send To Front Desk</button>
+    <button kendoButton class="inside" [primary]="true">Print</button>
+  </div>
+</div>

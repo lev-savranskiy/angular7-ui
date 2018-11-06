@@ -1,0 +1,30 @@
+
+
+.logout {
+  /*margin: 14px 100px 0 85px;*/
+}
+
+.row2 {
+  margin: 20px;
+}
+
+.menu {
+  background-color: #f8f9fa;
+  padding: 5px 20px;
+  border-bottom: 4px #0B61A4 solid;
+}
+
+
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav div:last-child {
+  float: right;
+}
+
+.topnav div:first-child {
+  margin: 0 0 0 20px;
+}
